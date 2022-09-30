@@ -1,100 +1,65 @@
-# 03 JavaScript: Password Generator
+# Password Generator 
 
-## Your Task
+## Description
 
-This week's Challenge requires you to modify starter code to create an application that enables employees to generate random passwords based on criteria that they’ve selected. This app will run in the browser and will feature dynamically updated HTML and CSS powered by JavaScript code that you write. It will have a clean and polished, responsive user interface that adapts to multiple screen sizes.
+The point of this project was to allow a user to be able to make a randomized password for any website or password protected database/app. Making passwords can be dificult, and it is better security to have a password that is not like any others. THerefore, making a webpage that would allow character randomization from a certain set of characters would serve a great purpose.
 
-The password can include special characters. If you’re unfamiliar with these, see this [list of password special characters](https://www.owasp.org/index.php/Password_special_characters) from the OWASP Foundation.
+## Walking Through the Code
+Starting off, we set some global variable to allow functions to call on them later. Second, we made an array containing the prompted values, making them easier to store/call later in the code. The writePassword function allows the program to start the generatePassword function to get our main function started. We start we empty string variables in the begining. This allows us so that when we do not hit certain criterias during the password selecting process, our variables reset, allowing us to start at step one with a 'clean slate' so that it doesn't cause any bugs. The passwordLength prompt is asked and the answer is turned into an integer with the parseInt() code, this will make it so that recalling this value in the future it is a number and not a string. A condition is run to make sure the password length is within our boundary and if it does not, it returns an empty string and the process can be restarted.
 
-## User Story
-
-```
-AS AN employee with access to sensitive data
-I WANT to randomly generate a password that meets certain criteria
-SO THAT I can create a strong password that provides greater security
-```
-
-## Acceptance Criteria
+Then the criteria for the password is asked in the confirm connotation allowing for the values to be written as true or false. These values are then stored into an array called passwordArray.
 
 ```
-GIVEN I need a new, secure password
-WHEN I click the button to generate a password
-THEN I am presented with a series of prompts for password criteria
-WHEN prompted for password criteria
-THEN I select which criteria to include in the password
-WHEN prompted for the length of the password
-THEN I choose a length of at least 8 characters and no more than 128 characters
-WHEN asked for character types to include in the password
-THEN I confirm whether or not to include lowercase, uppercase, numeric, and/or special characters
-WHEN I answer each prompt
-THEN my input should be validated and at least one character type should be selected
-WHEN all prompts are answered
-THEN a password is generated that matches the selected criteria
-WHEN the password is generated
-THEN the password is either displayed in an alert or written to the page
+    ![imgage showing the line of code explain above](./Assets/IMG1.JPG)
 ```
 
-## Mock-Up
+The third bit is building our pool of characters used for the password generator, which is asigned to our variable usedChar. The if steps to other ifs allowing them to be added onto each other is the selected value from the array was turned true from the previous prompts. A step I got stuck on here was making an if else on the second step. If the first option was true, the next lines of code were not annitiated, which did not allow the usedChar to be "built" up. The last step of the if statement checks to see if all the values were false, in which an alert says to at least pick one option and the functoin stops with a return of an emtpy string.
 
-The following image shows the web application's appearance and functionality:
+    ```
+        ![imgage showing the line of code explain above](./Assets/IMG2.JPG)
+    ```
 
-![The Password Generator application displays a red button to "Generate Password".](./Assets/03-javascript-homework-demo.png)
+Last piece in this function is the while loop. This allows us to set parameters to conitnually perform the addition of a character as long as the result.legnth (our variable we are changing in this function to hold our randomized password) is lower than the passwordLength inputed at the begining. The equation starts by multiplying a random number to the length of the userChar (the value that holds the characters we want to use). It then rounds this number and muliplies it by the usedChar value to select a character within that string. That character is then added into our result variable. This is run until the length of the result is less than that of the password length. This entire function then ends with the return result, which places our result string in the 'Your Secure Password' on the page.
 
-## Grading Requirements
 
-> **Note**: If a Challenge assignment submission is marked as “0”, it is considered incomplete and will not count towards your graduation requirements. Examples of incomplete submissions include the following:
->
-> * A repository that has no code
->
-> * A repository that includes a unique name but nothing else
->
-> * A repository that includes only a README file but nothing else
->
-> * A repository that only includes starter code
+    ```md
+    ![imgage showing the line of code explain above](./Assets/IMG3.JPG)
+    ```
 
-This Challenge is graded based on the following criteria: 
 
-### Technical Acceptance Criteria: 40%
 
-* Satisfies all of the preceding acceptance criteria.
+## Table of Contents (Optional)
 
-### Deployment: 32%
+N/A
+## Installation
 
-* Application deployed at live URL.
+N/A
 
-* Application loads with no errors.
+## Usage
 
-* Application GitHub URL submitted.
+To start the program click the 'Generate Password' button.
 
-* GitHub repository that contains application code.
+    ```md
+    ![imgage showing the step explain above](./Assets/IMG4.JPG)
+    ```
 
-### Application Quality: 15%
+Then write in the number of characters you want the length of your password to be and click 'OK'.
 
-* Application user experience is intuitive and easy to navigate.
+    ```md
+    ![imgage showing the step explain above](./Assets/IMG5.JPG)
+    ```
 
-* Application user interface style is clean and polished.
+The next windows, read the directions and answer them depending on the criteria you desire
 
-* Application resembles the mock-up functionality provided in the Challenge instructions.
+    ```md
+    ![imgage showing the step explain above](./Assets/IMG6.JPG)
+    ```
+Then, your password will apear in the dotted box, highlight and copy it to your desired location.
 
-### Repository Quality: 13%
+    ```md
+    ![imgage showing the step explain above](./Assets/IMG7.JPG)
+    ```
 
-* Repository has a unique name.
+## Credits
 
-* Repository follows best practices for file structure and naming conventions.
-
-* Repository follows best practices for class/id naming conventions, indentation, quality comments, etc.
-
-* Repository contains multiple descriptive commit messages.
-
-* Repository contains quality readme file with description, screenshot, and link to deployed application.
-
-## Review
-
-You are required to submit the following for review:
-
-* The URL of the deployed application.
-
-* The URL of the GitHub repository, with a unique name and a readme describing the project.
-
-- - -
-© 2022 Trilogy Education Services, LLC, a 2U, Inc. brand. Confidential and Proprietary. All Rights Reserved.
+N/A

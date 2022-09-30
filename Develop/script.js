@@ -13,11 +13,11 @@ var lowercaseCharacters = "abcdefghijklmnopqrstuvwxyz";
 var uppercaseCharacters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 var numericCharacters = "1234567890"
 var specialCharacters = "!@#$%^&*_-+="
+var usedChar = ""
 
 
 //TODO: array of numbers, specials, uppercase, lowercase
 var passwordArray = [passwordLength,passwordLowercase,passwordUppercase,passwordNumeric,passwordSpecial]
-var usedChar = ""
 
 
 // Write password to the #password input
@@ -31,7 +31,9 @@ function writePassword() {
 }
 
 function generatePassword(){
+
 //TODO: prompt user for length
+
   result = "";
   passwordLength = "";
   usedChar = "";
@@ -41,15 +43,14 @@ function generatePassword(){
   console.log(passwordLength)
 
 //TODO: check length
+
     if (passwordLength < 8 || passwordLength > 128) {
       alert("This number is invalid, please click on 'Generate Password' and read the directions again")
-      passwordLength = "";
+      return "";
     }else{
-    // function passwordPool (){
-      // passwordArray[1,2,3,4]=false;
+
 //TODO: promtpt/confirm for types of characters
 
-// TODO: maybe add a function?
     passwordLowercase=confirm("Would you like your password to contain lowercase letters?\n\nClick 'OK' for yes and 'Cancel' for no.")
     console.log("password lowercase") 
     console.log(passwordLowercase)
@@ -75,25 +76,24 @@ function generatePassword(){
 
 
     if (passwordArray[1] === true){
-      usedChar += "abcdefghijklmnopqrstuvwxyz"
+      usedChar = usedChar.concat(lowercaseCharacters)
       console.log("add lowercase"); 
     }if (passwordArray[2] === true){
-      usedChar += "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+      usedChar = usedChar.concat(uppercaseCharacters)
       console.log("add uppercase");   
     }if (passwordArray[3] === true){
-      usedChar += "1234567890"
+      usedChar = usedChar.concat(specialCharacters)
       console.log("add numbers");
     }if (passwordArray[4] === true){
-      usedChar += "!@#$%^&*_-+="
+      usedChar = usedChar.concat(specialCharacters)
       console.log("add symbols");
     }if (!passwordArray[1] && !passwordArray[2] && !passwordArray[3] && !passwordArray[4]){
       alert("Please select at least one option.")
       return ""
-      // passwordPool ()
-      console.log(passwordArray[1,2,3,4])
     }else {
-      console.log(usedChar)
+      console.log("characters to be used: " + usedChar)
     }
+
 //TODO: build the password character by character >>> select a random character from array of multiple characters
 
 //TODO: generate random int within range of available char length
@@ -110,8 +110,6 @@ function generatePassword(){
 
   return result
 }
-// }
-
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
